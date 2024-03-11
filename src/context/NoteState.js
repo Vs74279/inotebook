@@ -5,7 +5,7 @@ import { useState } from "react";
 const NoteState = (props) => {
    const notesInitial= [
     {
-      "_id": "1765ea9787ad3d32dfef972d0579",
+      "_id": "1765ea9787adfdfd3d32dfef972d0579",
       "user": "65e98e55091a4542bb8bc63c",
       "title": "New note",
       "description": "Please access the playlist",
@@ -14,41 +14,33 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "8965ea97e7ad3mkd32ef972d057d",
+      "_id": "1765ea9787adfdfd3skd32dfef972d0579",
       "user": "65e98e55091a4542bb8bc63c",
       "title": "New note",
       "description": "Please access the playlist",
       "tag": "youtube",
-      "date": "2024-03-08T04:45:27.101Z",
+      "date": "2024-03-08T04:43:51.110Z",
       "__v": 0
     },
     {
-        "_id": "6765ea97e7ad3d32evkf972d057d1",
-        "user": "65e98e55091a4542bb8bc63c",
-        "title": "New note",
-        "description": "Please access the playlist",
-        "tag": "youtube",
-        "date": "2024-03-08T04:45:27.101Z",
-        "__v": 0
-      },
-      {
-        "_id": "4565ea97e7ad3d32efrk972d057d2",
-        "user": "65e98e55091a4542bb8bc63c",
-        "title": "New note",
-        "description": "Please access the playlist",
-        "tag": "youtube",
-        "date": "2024-03-08T04:45:27.101Z",
-        "__v": 0
-      },
-      {
-        "_id": "2365ea97e7dkad3d32ef972d057d3",
-        "user": "65e98e55091a4542bb8bc63c",
-        "title": "New note",
-        "description": "Please access the playlist",
-        "tag": "youtube",
-        "date": "2024-03-08T04:45:27.101Z",
-        "__v": 0
-      },
+      "_id": "1765ea9787adfdmkfd3d32dfef972d0579",
+      "user": "65e98e55091a4542bb8bc63c",
+      "title": "New note",
+      "description": "Please access the playlist",
+      "tag": "youtube",
+      "date": "2024-03-08T04:43:51.110Z",
+      "__v": 0
+    },
+    {
+      "_id": "1765ea978vk7adfdfd3d32dfef972d0579",
+      "user": "65e98e55091a4542bb8bc63c",
+      "title": "New note",
+      "description": "Please access the playlist",
+      "tag": "youtube",
+      "date": "2024-03-08T04:43:51.110Z",
+      "__v": 0
+    },
+   
   ] 
 
    const [notes, setNotes] = useState(notesInitial)  
@@ -68,9 +60,16 @@ const NoteState = (props) => {
    }
 
    // Delete a note
-   const deleteNote = ()=>{
+   const deleteNote = (id) => {
+    console.log("Deleting the note with id: " + id);
+    try {
+        const newNotes = notes.filter((note) => note._id !== id);
+        setNotes(newNotes);
+    } catch (error) {
+        console.error("Error deleting note:", error);
+    }
+};
 
-   }
 
    // Edit a note
    const editNote = ()=>{
