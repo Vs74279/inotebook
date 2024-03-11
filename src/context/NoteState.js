@@ -5,7 +5,7 @@ import { useState } from "react";
 const NoteState = (props) => {
    const notesInitial= [
     {
-      "_id": "65ea9787ad3d32ef972d0579",
+      "_id": "1765ea9787ad3d32dfef972d0579",
       "user": "65e98e55091a4542bb8bc63c",
       "title": "New note",
       "description": "Please access the playlist",
@@ -14,7 +14,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "65ea97e7ad3d32ef972d057d",
+      "_id": "8965ea97e7ad3mkd32ef972d057d",
       "user": "65e98e55091a4542bb8bc63c",
       "title": "New note",
       "description": "Please access the playlist",
@@ -23,7 +23,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-        "_id": "65ea97e7ad3d32ef972d057d",
+        "_id": "6765ea97e7ad3d32evkf972d057d1",
         "user": "65e98e55091a4542bb8bc63c",
         "title": "New note",
         "description": "Please access the playlist",
@@ -32,7 +32,7 @@ const NoteState = (props) => {
         "__v": 0
       },
       {
-        "_id": "65ea97e7ad3d32ef972d057d",
+        "_id": "4565ea97e7ad3d32efrk972d057d2",
         "user": "65e98e55091a4542bb8bc63c",
         "title": "New note",
         "description": "Please access the playlist",
@@ -41,7 +41,7 @@ const NoteState = (props) => {
         "__v": 0
       },
       {
-        "_id": "65ea97e7ad3d32ef972d057d",
+        "_id": "2365ea97e7dkad3d32ef972d057d3",
         "user": "65e98e55091a4542bb8bc63c",
         "title": "New note",
         "description": "Please access the playlist",
