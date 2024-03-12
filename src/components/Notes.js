@@ -56,11 +56,11 @@ const onChange = (e)=>{
                 </div>
                 <div className="my-3">
                   <label htmlFor="edescription" className='form-label'>description</label>
-                  <input type="text" className="form-control" id="edescription" name="edescription"  value= {note.description} onChange={onChange} />
+                  <input type="text" className="form-control" id="edescription" name="edescription"  value= {note.description} onChange={onChange} minLength={5} required />
                 </div>
                 <div className="my-3">
                   <label htmlFor="etag" className='form-label'>tag</label>
-                  <input type="text" className="form-control" id="etag" name="etag" value={note.tag} onChange={onChange} />
+                  <input type="text" className="form-control" id="etag" name="etag" value={note.tag} onChange={onChange} minLength={5} required />
                 </div>
 
                
@@ -68,13 +68,16 @@ const onChange = (e)=>{
             </div>
             <div class="modal-footer">
               <button ref={myRefClose}type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button onClick={handleClick} type="button" class="btn btn-primary">updateNote</button>
+              <button disabled={note.etitle.length<5 || note.edescription.length<5} onClick={handleClick} type="button" class="btn btn-primary">updateNote</button>
             </div>
           </div>
         </div>
       </div>
       <div className='row my-3'>
         <h1>your Notes</h1>
+        <div className='container mx-2'>
+        {notes.length===0 && 'No notes to display'}
+        </div>
         {notes.map((note) => {
           return <Noteitem key={note._id} updateNote={updateNote} note={note} />
 
