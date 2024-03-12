@@ -18,13 +18,13 @@ const AddNote = () => {
     <h1> Add a Note</h1>
     <form className='my-3'>
       <div className="form-group">
-        <label htmlFor="title">Title</label>
+        <label htmlFor="title" className='form-control'>Title</label>
         <input type="text" className="form-control" id="title" name="title" aria-describedby="emailHelp" placeholder="Enter email" onChange={onChange} />
 
       </div>
       <div className="form-group">
-        <label htmlFor="description">description</label>
-        <input type="text" className="form-control" id="description" name="description" placeholder="Password" onChange={onChange} />
+        <label htmlFor="description" className='form-label'>description</label>
+        <input type="text" className="form-control" id="description" name="description"  onChange={onChange} />
       </div>
       <div className="form-check">
         <input type="checkbox" className="form-check-input" id="exampleCheck1" />
