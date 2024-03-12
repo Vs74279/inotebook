@@ -22,14 +22,15 @@ const AddNote = () => {
         <input type="text" className="form-control" id="title" name="title" aria-describedby="emailHelp" placeholder="Enter email" onChange={onChange} />
 
       </div>
-      <div className="form-group">
+      <div className="my-3">
         <label htmlFor="description" className='form-label'>description</label>
         <input type="text" className="form-control" id="description" name="description"  onChange={onChange} />
       </div>
-      <div className="form-check">
-        <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-        <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
+      <div className="my-3">
+        <label htmlFor="tag" className='form-label'>tag</label>
+        <input type="text" className="form-control" id="tag" name="tag"  onChange={onChange} />
       </div>
+      
       <button type="submit" className="btn btn-primary" onClick={handleClick}>Add Note</button>
     </form>
     </div>
