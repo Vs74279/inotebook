@@ -58,7 +58,7 @@ router.post('/createuser', [
 router.post('/login', [
 
   body('email', 'Enter a vlid email').isEmail(),
-  body('password', 'Password cannot be blank').exists(),
+  body('password', 'Password cannot be blank').exists()
 
 ], async (req, res) => {
 
