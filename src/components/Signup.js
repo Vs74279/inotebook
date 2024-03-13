@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = (props) => {
     const [credentials,setcredentials] = useState({name: "",email: "", password: "",cpassword:""})
     let navigate = useNavigate();
     const handleSubmit = async (e) => {
@@ -21,10 +21,11 @@ const Signup = () => {
             // save the  auth token and redirect
             localStorage.setItem('token', json.authtoken);
             navigate('/path')
+            props.showAlert("Account created successfully","success")
 
         }
         else{
-            alert("invalid credentials");
+            props.showAlert("Invalid Details", "denger")
         }
 
     }
@@ -36,21 +37,21 @@ const Signup = () => {
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="name">Name</label>
-                    <input type="text" className="form-control" id="name" name="name" onChange={onChange}  aria-describedby="emailHelp" placeholder="Enter email" />
+                    <input type="text" className="form-control" id="name" name="name" onChange={onChange}  aria-describedby="emailHelp"  />
                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Email address</label>
-                    <input type="email" className="form-control" id="email" name="email" onChange={onChange}  aria-describedby="emailHelp" placeholder="Enter email" />
+                    <input type="email" className="form-control" id="email" name="email" onChange={onChange}  aria-describedby="emailHelp"  />
                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
-                    <input type="password" className="form-control" id="password" name="password" onChange={onChange} minLength={5} required placeholder="Password" />
+                    <input type="password" className="form-control" id="password" name="password" onChange={onChange} minLength={5} required  />
                 </div>
                 <div className="form-group">
                     <label htmlFor="cpassword"> Conform Password</label>
-                    <input type="password" className="form-control" id="cpassword" name="cpassword" onChange={onChange} minLength={5} required  placeholder="Password" />
+                    <input type="password" className="form-control" id="cpassword" name="cpassword" onChange={onChange} minLength={5} required   />
                 </div>
                
                 <button type="submit" className="btn btn-primary">Submit</button>

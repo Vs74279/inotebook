@@ -4,7 +4,7 @@ import Noteitem from './Noteitem';
 import AddNote from './AddNote';
 
 
-const Notes = () => {
+const Notes = (props) => {
   const context = useContext(noteContext);
   const { notes, getNotes ,editNote} = context;
   useEffect(() => {
@@ -13,13 +13,14 @@ const Notes = () => {
     // eslint-disable-next-line
 
 
-  }, [])
+  }, [getNotes]);
   const myRef = useRef(null);
   const myRefClose = useRef(null);
   const [note, setNote] = useState({ id: "" ,etitle: "", edescription:"",etag: ""})
   const updateNote = (currentNote) => {
     myRef.current.click();
     setNote({ id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag})
+    props.showAlert("updated successfully","success");
   }
 
   const handleClick=(e)=>{
@@ -34,7 +35,7 @@ const onChange = (e)=>{
 }
   return (
     <>
-      <AddNote />
+      <AddNote showAlert={props.showAlert}/>
       <button ref={myRef} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Launch demo modal
       </button>
@@ -51,7 +52,7 @@ const onChange = (e)=>{
               <form className='my-3'>
                 <div className="form-group">
                   <label htmlFor="etitle" className='form-control'>Title</label>
-                  <input type="text" className="form-control" id="etitle" name="etitle" value={note.title} aria-describedby="emailHelp" placeholder="Enter email" onChange={onChange} />
+                  <input type="text" className="form-control" id="etitle" name="etitle" value={note.title} aria-describedby="emailHelp"  onChange={onChange} />
 
                 </div>
                 <div className="my-3">
@@ -79,7 +80,7 @@ const onChange = (e)=>{
         {notes.length===0 && 'No notes to display'}
         </div>
         {notes.map((note) => {
-          return <Noteitem key={note._id} updateNote={updateNote} note={note} />
+          return <Noteitem key={note._id} updateNote={updateNote} showAlert={props.showAlert}note={note} />
 
 
         })}

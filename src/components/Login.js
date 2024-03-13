@@ -23,10 +23,11 @@ const Login = (props) => {
             // save the  auth token and redirect
             localStorage.setItem('token', json.authtoken);
             navigate('/path')
+            props.showAlert("Login successfully","success")
 
         }
         else{
-            alert("invalid credentials");
+            props.showAlert("Invalid Credentials", "denger")
         }
 
     }
@@ -38,12 +39,12 @@ const Login = (props) => {
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="email">Email address</label>
-                    <input type="email" className="form-control" value={credentials.email} onChange={onChange} id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" />
+                    <input type="email" className="form-control" value={credentials.email} onChange={onChange} id="email" name="email" aria-describedby="emailHelp"  />
                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
-                    <input type="password" className="form-control"  value={credentials.password} onChange={onChange} id="password" name="password" placeholder="Password" />
+                    <input type="password" className="form-control"  value={credentials.password} onChange={onChange} id="password" name="password"  />
                 </div>
 
                 <button type="submit" className="btn btn-primary" >Submit</button>
